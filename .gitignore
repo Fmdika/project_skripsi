@@ -1,0 +1,38 @@
+# ===== Environment & cache =====
+.venv/
+venv/
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# ===== Editor / local / private =====
+.vscode/
+.claude/
+CLAUDE.md
+
+# ===== Dokumen skripsi (tidak dipublikasikan di repo) =====
+paper/
+
+# ===== Notebook: hanya pipeline multivariate final + eksperimen pendukung =====
+notebook/*
+!notebook/preprocessing_multivariate_v2.ipynb
+!notebook/modeling_multivariate.ipynb
+!notebook/modeling_multivariate_v2.ipynb
+!notebook/modeling_multivariate_v3-2.ipynb
+!notebook/visualisasi_multivariate_v3-2.ipynb
+
+# ===== Package Python legacy (sudah dimigrasi ke notebook) =====
+src/
+
+# ===== Model: hanya model final multivariate v3 =====
+model/*
+!model/model_multivariate_v3/
+!model/model_multivariate_v3/**
+
+# ===== Data: raw sumber yang dipakai + processed_v2 final =====
+data/processed/
+data/raw/*
+!data/raw/historis_ihsg.csv
+!data/raw/nilai_tukar.csv
+!data/raw/bi_rate_monthly.csv
+!data/raw/inflasi_monthly.csv

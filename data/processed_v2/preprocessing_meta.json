@@ -1,0 +1,360 @@
+{
+  "version": "v2",
+  "note": "y_test di-generate canonical (independen dari seq_monthly)",
+  "n_daily_total": 2426,
+  "n_daily_train": 1940,
+  "n_daily_test": 486,
+  "n_monthly_total": 120,
+  "n_monthly_train": 95,
+  "n_monthly_test": 25,
+  "cutoff_date": "2022-12-21",
+  "daily_train_range": [
+    "2015-01-02",
+    "2022-12-20"
+  ],
+  "daily_test_range": [
+    "2022-12-21",
+    "2024-12-30"
+  ],
+  "daily_features": [
+    "ihsg",
+    "nilai_tukar"
+  ],
+  "monthly_features": [
+    "inflasi",
+    "bi_rate"
+  ],
+  "target_col": "ihsg",
+  "target_idx_in_daily": 0,
+  "grid_config": {
+    "seq_daily_candidates": [
+      22,
+      60,
+      90
+    ],
+    "seq_monthly_candidates": [
+      3,
+      6,
+      12
+    ],
+    "batch_size_candidates": [
+      16,
+      32
+    ],
+    "grid_horizon": 5,
+    "test_ratio": 0.2,
+    "random_seed": 42
+  },
+  "available_dual_keys": [
+    "(22, 3)",
+    "(22, 6)",
+    "(22, 12)",
+    "(60, 3)",
+    "(60, 6)",
+    "(60, 12)",
+    "(90, 3)",
+    "(90, 6)",
+    "(90, 12)"
+  ],
+  "sequences_shapes": {
+    "d22_m3": {
+      "seq_daily": 22,
+      "seq_monthly": 3,
+      "X_daily_train": [
+        1864,
+        22,
+        2
+      ],
+      "X_monthly_train": [
+        1864,
+        3,
+        2
+      ],
+      "y_train": [
+        1864
+      ],
+      "X_daily_test": [
+        485,
+        22,
+        2
+      ],
+      "X_monthly_test": [
+        485,
+        3,
+        2
+      ],
+      "y_test": [
+        485
+      ]
+    },
+    "d22_m6": {
+      "seq_daily": 22,
+      "seq_monthly": 6,
+      "X_daily_train": [
+        1803,
+        22,
+        2
+      ],
+      "X_monthly_train": [
+        1803,
+        6,
+        2
+      ],
+      "y_train": [
+        1803
+      ],
+      "X_daily_test": [
+        485,
+        22,
+        2
+      ],
+      "X_monthly_test": [
+        485,
+        6,
+        2
+      ],
+      "y_test": [
+        485
+      ]
+    },
+    "d22_m12": {
+      "seq_daily": 22,
+      "seq_monthly": 12,
+      "X_daily_train": [
+        1682,
+        22,
+        2
+      ],
+      "X_monthly_train": [
+        1682,
+        12,
+        2
+      ],
+      "y_train": [
+        1682
+      ],
+      "X_daily_test": [
+        485,
+        22,
+        2
+      ],
+      "X_monthly_test": [
+        485,
+        12,
+        2
+      ],
+      "y_test": [
+        485
+      ]
+    },
+    "d60_m3": {
+      "seq_daily": 60,
+      "seq_monthly": 3,
+      "X_daily_train": [
+        1864,
+        60,
+        2
+      ],
+      "X_monthly_train": [
+        1864,
+        3,
+        2
+      ],
+      "y_train": [
+        1864
+      ],
+      "X_daily_test": [
+        485,
+        60,
+        2
+      ],
+      "X_monthly_test": [
+        485,
+        3,
+        2
+      ],
+      "y_test": [
+        485
+      ]
+    },
+    "d60_m6": {
+      "seq_daily": 60,
+      "seq_monthly": 6,
+      "X_daily_train": [
+        1803,
+        60,
+        2
+      ],
+      "X_monthly_train": [
+        1803,
+        6,
+        2
+      ],
+      "y_train": [
+        1803
+      ],
+      "X_daily_test": [
+        485,
+        60,
+        2
+      ],
+      "X_monthly_test": [
+        485,
+        6,
+        2
+      ],
+      "y_test": [
+        485
+      ]
+    },
+    "d60_m12": {
+      "seq_daily": 60,
+      "seq_monthly": 12,
+      "X_daily_train": [
+        1682,
+        60,
+        2
+      ],
+      "X_monthly_train": [
+        1682,
+        12,
+        2
+      ],
+      "y_train": [
+        1682
+      ],
+      "X_daily_test": [
+        485,
+        60,
+        2
+      ],
+      "X_monthly_test": [
+        485,
+        12,
+        2
+      ],
+      "y_test": [
+        485
+      ]
+    },
+    "d90_m3": {
+      "seq_daily": 90,
+      "seq_monthly": 3,
+      "X_daily_train": [
+        1836,
+        90,
+        2
+      ],
+      "X_monthly_train": [
+        1836,
+        3,
+        2
+      ],
+      "y_train": [
+        1836
+      ],
+      "X_daily_test": [
+        485,
+        90,
+        2
+      ],
+      "X_monthly_test": [
+        485,
+        3,
+        2
+      ],
+      "y_test": [
+        485
+      ]
+    },
+    "d90_m6": {
+      "seq_daily": 90,
+      "seq_monthly": 6,
+      "X_daily_train": [
+        1803,
+        90,
+        2
+      ],
+      "X_monthly_train": [
+        1803,
+        6,
+        2
+      ],
+      "y_train": [
+        1803
+      ],
+      "X_daily_test": [
+        485,
+        90,
+        2
+      ],
+      "X_monthly_test": [
+        485,
+        6,
+        2
+      ],
+      "y_test": [
+        485
+      ]
+    },
+    "d90_m12": {
+      "seq_daily": 90,
+      "seq_monthly": 12,
+      "X_daily_train": [
+        1682,
+        90,
+        2
+      ],
+      "X_monthly_train": [
+        1682,
+        12,
+        2
+      ],
+      "y_train": [
+        1682
+      ],
+      "X_daily_test": [
+        485,
+        90,
+        2
+      ],
+      "X_monthly_test": [
+        485,
+        12,
+        2
+      ],
+      "y_test": [
+        485
+      ]
+    }
+  },
+  "y_test_canonical": {
+    "22": {
+      "shape": [
+        485
+      ],
+      "range": [
+        0.777454674243927,
+        1.1737580299377441
+      ]
+    },
+    "60": {
+      "shape": [
+        485
+      ],
+      "range": [
+        0.777454674243927,
+        1.1737580299377441
+      ]
+    },
+    "90": {
+      "shape": [
+        485
+      ],
+      "range": [
+        0.777454674243927,
+        1.1737580299377441
+      ]
+    }
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "arch_config_fixed": {
+    "seq_daily": 90,
+    "lstm_units": 128,
+    "dropout_rate": 0.2,
+    "learning_rate": 0.0001,
+    "batch_size": 32
+  },
+  "candidates": [
+    3,
+    6,
+    12
+  ],
+  "results": [
+    {
+      "seq_monthly": 3,
+      "best_val_loss": 0.0014484785497188568,
+      "epochs_ran": 66,
+      "rmse": 126.37395291974727,
+      "mape": 1.3433152437210083,
+      "r2": 0.816963255405426,
+      "checkpoint": "d:\\project_skripsi\\model\\model_multivariate_v3\\ablation_multi_seqm3.keras"
+    },
+    {
+      "seq_monthly": 6,
+      "best_val_loss": 0.0015438453992828727,
+      "epochs_ran": 75,
+      "rmse": 215.27232027132519,
+      "mape": 2.5285792350769043,
+      "r2": 0.4688716530799866,
+      "checkpoint": "d:\\project_skripsi\\model\\model_multivariate_v3\\ablation_multi_seqm6.keras"
+    },
+    {
+      "seq_monthly": 12,
+      "best_val_loss": 0.0020858210045844316,
+      "epochs_ran": 106,
+      "rmse": 159.22852950829824,
+      "mape": 1.7763584852218628,
+      "r2": 0.7094205617904663,
+      "checkpoint": "d:\\project_skripsi\\model\\model_multivariate_v3\\ablation_multi_seqm12.keras"
+    }
+  ],
+  "best_seq_monthly": 3,
+  "selection_metric": "rmse (terkecil)"
+}

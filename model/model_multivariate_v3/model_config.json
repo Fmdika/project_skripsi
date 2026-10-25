@@ -1,0 +1,112 @@
+{
+  "created_at": "2026-06-15T00:54:09.291900",
+  "version": "v3",
+  "preprocessing_version": "v2 (reused)",
+  "approach": "single run, hyperparameter dari observasi empiris (tidak ada grid search)",
+  "notes": [
+    "Hyperparameter arsitektur dikunci dari observasi empiris eksperimen v1 & v2",
+    "seq_monthly dipilih melalui ablation study full training",
+    "Final training single run dengan seed=42, patience ES=30 LR=15",
+    "y_test konsisten (canonical) dari preprocessing v2"
+  ],
+  "arch_config_fixed": {
+    "seq_daily": 90,
+    "lstm_units": 128,
+    "dropout_rate": 0.2,
+    "learning_rate": 0.0001,
+    "batch_size": 32
+  },
+  "multivariate": {
+    "architecture": "Dual-Branch LSTM (Keras Functional API)",
+    "config": {
+      "seq_daily": 90,
+      "lstm_units": 128,
+      "dropout_rate": 0.2,
+      "learning_rate": 0.0001,
+      "batch_size": 32,
+      "seq_monthly": 3
+    },
+    "seq_monthly_selection": "ablation study (RMSE terkecil)",
+    "ablation_results": [
+      {
+        "seq_monthly": 3,
+        "best_val_loss": 0.0014484785497188568,
+        "epochs_ran": 66,
+        "rmse": 126.37395291974727,
+        "mape": 1.3433152437210083,
+        "r2": 0.816963255405426,
+        "checkpoint": "d:\\project_skripsi\\model\\model_multivariate_v3\\ablation_multi_seqm3.keras"
+      },
+      {
+        "seq_monthly": 6,
+        "best_val_loss": 0.0015438453992828727,
+        "epochs_ran": 75,
+        "rmse": 215.27232027132519,
+        "mape": 2.5285792350769043,
+        "r2": 0.4688716530799866,
+        "checkpoint": "d:\\project_skripsi\\model\\model_multivariate_v3\\ablation_multi_seqm6.keras"
+      },
+      {
+        "seq_monthly": 12,
+        "best_val_loss": 0.0020858210045844316,
+        "epochs_ran": 106,
+        "rmse": 159.22852950829824,
+        "mape": 1.7763584852218628,
+        "r2": 0.7094205617904663,
+        "checkpoint": "d:\\project_skripsi\\model\\model_multivariate_v3\\ablation_multi_seqm12.keras"
+      }
+    ],
+    "epochs_ran": 70,
+    "best_val_loss": 0.0017094806535169482,
+    "test_metrics": {
+      "rmse": 122.8858,
+      "mape": 1.3466,
+      "r2": 0.8269
+    },
+    "input_daily_shape": [
+      90,
+      2
+    ],
+    "input_monthly_shape": [
+      3,
+      2
+    ],
+    "daily_features": [
+      "ihsg",
+      "nilai_tukar"
+    ],
+    "monthly_features": [
+      "inflasi",
+      "bi_rate"
+    ],
+    "target_col": "ihsg"
+  },
+  "univariate": {
+    "architecture": "Single-Branch LSTM",
+    "config": {
+      "seq_daily": 90,
+      "lstm_units": 128,
+      "dropout_rate": 0.2,
+      "learning_rate": 0.0001,
+      "batch_size": 32
+    },
+    "epochs_ran": 41,
+    "best_val_loss": 0.0017831469886004925,
+    "test_metrics": {
+      "rmse": 129.0521,
+      "mape": 1.4227,
+      "r2": 0.8091
+    },
+    "input_shape": [
+      90,
+      1
+    ],
+    "target_col": "ihsg"
+  },
+  "comparison": {
+    "delta_rmse": 6.1663,
+    "delta_mape": 0.0761,
+    "delta_r2": 0.0178,
+    "winner": "multivariate"
+  }
+}
