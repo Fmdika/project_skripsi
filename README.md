@@ -55,7 +55,7 @@ Keluaran kedua cabang **digabungkan pada tingkat representasi** (operasi *concat
 | `learning_rate` | 1e-4 |
 | `batch_size` | 32 |
 
-Nilai hyperparameter arsitektur dikunci dari observasi empiris pada eksperimen pendahulu (lihat notebook `modeling_multivariate.ipynb` dan `modeling_multivariate_v2.ipynb`).
+Nilai hyperparameter arsitektur dikunci dari observasi empiris pada eksperimen pendahulu (lihat notebook [modeling_multivariate.ipynb](notebook/modeling_multivariate.ipynb) dan [modeling_multivariate_v2.ipynb](notebook/modeling_multivariate_v2.ipynb)).
 
 ---
 
