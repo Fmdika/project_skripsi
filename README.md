@@ -137,5 +137,4 @@ Model final dan artefak preprocessing sudah disertakan, sehingga notebook pemode
 ## Catatan
 
 - Seluruh kode penelitian berada di notebook Jupyter (bukan package Python).
-- Bahasa dokumentasi: Indonesia.
 - Repositori ini merupakan artefak penelitian; naskah skripsi dikelola terpisah.
