@@ -67,7 +67,9 @@ Nilai hyperparameter arsitektur dikunci dari observasi empiris pada eksperimen p
 | MAPE | 1.42% | **1.35%** |
 | R² | 0.809 | **0.827** |
 
-Pada studi kasus ini, penambahan variabel makroekonomi memperbaiki prediksi IHSG. Figur hasil lengkap (kurva loss, actual vs predicted, residual, distribusi error, rolling MAPE, dll.) tersedia di [reports/figures_v3/](reports/figures_v3/).
+Pada studi kasus ini, penambahan variabel makroekonomi memperbaiki metrik titik (RMSE, MAPE, R²) dengan arah yang konsisten. Namun, uji signifikansi statistik **Diebold–Mariano** menunjukkan perbedaan tersebut **belum signifikan pada taraf 5%** (p = 0,082 untuk squared-error loss; 0,063 untuk absolute-error loss) — hanya marginal pada taraf 10%. Jadi keunggulan multivariate bersifat konsisten secara arah, tetapi belum cukup kuat secara statistik untuk diklaim signifikan. Detail uji ada di [notebook/uji_diebold_mariano.ipynb](notebook/uji_diebold_mariano.ipynb).
+
+Figur hasil lengkap (kurva loss, actual vs predicted, residual, distribusi error, rolling MAPE, dll.) tersedia di [reports/figures_v3/](reports/figures_v3/).
 
 ---
 
@@ -100,6 +102,7 @@ Jalankan berurutan. Semua path di notebook bersifat relatif dari folder `noteboo
 | 1. Pra-pemrosesan | [notebook/preprocessing_multivariate_v2.ipynb](notebook/preprocessing_multivariate_v2.ipynb) | Membersihkan & menyelaraskan data harian/bulanan, split train/test, scaling, pembentukan sekuens → menghasilkan artefak di `data/processed_v2/`. |
 | 2. Pemodelan & evaluasi | [notebook/modeling_multivariate_v3-2.ipynb](notebook/modeling_multivariate_v3-2.ipynb) | Membangun & melatih model univariate dan multivariate dual-branch, studi ablasi `seq_monthly`, evaluasi RMSE/MAPE/R² → menyimpan ke `model/model_multivariate_v3/`. |
 | 3. Visualisasi | [notebook/visualisasi_multivariate_v3-2.ipynb](notebook/visualisasi_multivariate_v3-2.ipynb) | Menghasilkan seluruh figur hasil ke `reports/figures_v3/`. |
+| 4. Uji signifikansi | [notebook/uji_diebold_mariano.ipynb](notebook/uji_diebold_mariano.ipynb) | Uji Diebold–Mariano atas galat prediksi tersimpan (post-hoc, tidak melatih ulang) untuk menilai signifikansi statistik selisih akurasi multivariate vs univariate. |
 
 ### Eksperimen pendukung (dasar pemilihan hyperparameter)
 

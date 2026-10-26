@@ -20,6 +20,7 @@ notebook/*
 !notebook/modeling_multivariate_v2.ipynb
 !notebook/modeling_multivariate_v3-2.ipynb
 !notebook/visualisasi_multivariate_v3-2.ipynb
+!notebook/uji_diebold_mariano.ipynb
 
 # ===== Package Python legacy (sudah dimigrasi ke notebook) =====
 src/
