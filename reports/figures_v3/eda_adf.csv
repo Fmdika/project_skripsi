@@ -1,0 +1,5 @@
+Variabel,Frekuensi,Statistik ADF,nilai-p,Kesimpulan
+IHSG,Harian,-1.532,0.518,Tidak stasioner
+Kurs (USD/IDR),Harian,-2.095,0.246,Tidak stasioner
+Inflasi (%),Bulanan,-2.343,0.159,Tidak stasioner
+BI Rate (%),Bulanan,-2.148,0.225,Tidak stasioner

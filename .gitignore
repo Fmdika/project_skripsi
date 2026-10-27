@@ -16,6 +16,7 @@ paper/
 # ===== Notebook: hanya pipeline multivariate final + eksperimen pendukung =====
 notebook/*
 !notebook/preprocessing_multivariate_v2.ipynb
+!notebook/eda_multivariate.ipynb
 !notebook/modeling_multivariate.ipynb
 !notebook/modeling_multivariate_v2.ipynb
 !notebook/modeling_multivariate_v3-2.ipynb

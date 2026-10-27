@@ -31,6 +31,10 @@ Penelitian menganalisis prediksi IHSG **satu langkah ke depan (one-step ahead)**
 - **Split time-series 80:20**, cutoff **2022-12-21** (train 2015-01-02 → 2022-12-20; test 2022-12-21 → 2024-12-30).
 - **Scaling** `MinMaxScaler`, *fit hanya pada data train* untuk mencegah kebocoran informasi.
 
+### Eksplorasi Data (EDA)
+
+Sebelum pemodelan dilakukan eksplorasi data ([notebook/eda_multivariate.ipynb](notebook/eda_multivariate.ipynb)) yang mencakup statistik deskriptif, visualisasi deret waktu, korelasi antarvariabel (dihitung pada frekuensi bulanan), serta uji stasioneritas Augmented Dickey-Fuller (ADF). Temuan utama: korelasi IHSG terhadap Kurs tergolong sedang (0,64) sedangkan terhadap variabel makro bulanan lainnya tergolong lemah (BI Rate -0,24; inflasi 0,04), dan seluruh variabel tidak stasioner pada tingkat (*level*). Hal ini mendukung penggunaan pendekatan berbasis sekuens dengan normalisasi. Keluaran EDA tersimpan di `reports/figures_v3/` (berawalan `eda_`).
+
 ---
 
 ## Arsitektur Model
@@ -100,9 +104,10 @@ Jalankan berurutan. Semua path di notebook bersifat relatif dari folder `noteboo
 | Tahap | Notebook | Keterangan |
 |---|---|---|
 | 1. Pra-pemrosesan | [notebook/preprocessing_multivariate_v2.ipynb](notebook/preprocessing_multivariate_v2.ipynb) | Membersihkan & menyelaraskan data harian/bulanan, split train/test, scaling, pembentukan sekuens → menghasilkan artefak di `data/processed_v2/`. |
-| 2. Pemodelan & evaluasi | [notebook/modeling_multivariate_v3-2.ipynb](notebook/modeling_multivariate_v3-2.ipynb) | Membangun & melatih model univariate dan multivariate dual-branch, studi ablasi `seq_monthly`, evaluasi RMSE/MAPE/R² → menyimpan ke `model/model_multivariate_v3/`. |
-| 3. Visualisasi | [notebook/visualisasi_multivariate_v3-2.ipynb](notebook/visualisasi_multivariate_v3-2.ipynb) | Menghasilkan seluruh figur hasil ke `reports/figures_v3/`. |
-| 4. Uji signifikansi | [notebook/uji_diebold_mariano.ipynb](notebook/uji_diebold_mariano.ipynb) | Uji Diebold–Mariano atas galat prediksi tersimpan (post-hoc, tidak melatih ulang) untuk menilai signifikansi statistik selisih akurasi multivariate vs univariate. |
+| 2. Eksplorasi data (EDA) | [notebook/eda_multivariate.ipynb](notebook/eda_multivariate.ipynb) | Statistik deskriptif, visualisasi deret waktu, korelasi antarvariabel (frekuensi bulanan), dan uji stasioneritas ADF → figur & tabel (`eda_*`) ke `reports/figures_v3/`. |
+| 3. Pemodelan & evaluasi | [notebook/modeling_multivariate_v3-2.ipynb](notebook/modeling_multivariate_v3-2.ipynb) | Membangun & melatih model univariate dan multivariate dual-branch, studi ablasi `seq_monthly`, evaluasi RMSE/MAPE/R² → menyimpan ke `model/model_multivariate_v3/`. |
+| 4. Visualisasi | [notebook/visualisasi_multivariate_v3-2.ipynb](notebook/visualisasi_multivariate_v3-2.ipynb) | Menghasilkan seluruh figur hasil ke `reports/figures_v3/`. |
+| 5. Uji signifikansi | [notebook/uji_diebold_mariano.ipynb](notebook/uji_diebold_mariano.ipynb) | Uji Diebold–Mariano atas galat prediksi tersimpan (post-hoc, tidak melatih ulang) untuk menilai signifikansi statistik selisih akurasi multivariate vs univariate. |
 
 ### Eksperimen pendukung (dasar pemilihan hyperparameter)
 
@@ -117,7 +122,7 @@ Notebook berikut **bukan** pipeline final, melainkan eksperimen yang mendasari p
 
 ## Cara Menjalankan
 
-Prasyarat: Python 3.10, dengan stack TensorFlow/Keras, scikit-learn, pandas, numpy, matplotlib, joblib.
+Prasyarat: Python 3.10, dengan stack TensorFlow/Keras, scikit-learn, pandas, numpy, matplotlib, seaborn, statsmodels, joblib.
 
 ```bash
 # 1. Buat environment & install dependensi
@@ -127,7 +132,7 @@ python -m venv .venv
 # Linux/Mac:
 source .venv/bin/activate
 
-pip install tensorflow scikit-learn pandas numpy matplotlib joblib jupyter
+pip install tensorflow scikit-learn pandas numpy matplotlib seaborn statsmodels joblib jupyter
 
 # 2. Jalankan notebook sesuai urutan pipeline di atas
 jupyter notebook
